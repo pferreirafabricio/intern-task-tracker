@@ -35,13 +35,13 @@ app.Run();
 
 static async Task<IResult> GetAllTodosAsync(InternTaskTrackerDbContext db)
 {
-    var todos = await db.Todos.ToListAsync();
+    var todos = await db.Todos!.ToListAsync();
     return Results.Ok(todos);
 }
 
 static async Task<IResult> GetTodoAsync(InternTaskTrackerDbContext db, int id)
 {
-    var todo = await db.Todos.FindAsync(id);
+    var todo = await db.Todos!.FindAsync(id);
 
     if (todo is null)
         return Results.NotFound();
@@ -51,7 +51,7 @@ static async Task<IResult> GetTodoAsync(InternTaskTrackerDbContext db, int id)
 
 static async Task<IResult> PostTodoAsync(InternTaskTrackerDbContext db, TodoItem todo)
 {
-    await db.Todos.AddAsync(todo);
+    await db.Todos!.AddAsync(todo);
     await db.SaveChangesAsync();
 
     return Results.Created($"/todo/{todo.Id}", todo);
@@ -59,7 +59,7 @@ static async Task<IResult> PostTodoAsync(InternTaskTrackerDbContext db, TodoItem
 
 static async Task<IResult> DeleteTodoAsync(InternTaskTrackerDbContext db, int id)
 {
-    var todo = await db.Todos.FindAsync(id);
+    var todo = await db.Todos!.FindAsync(id);
     if (todo is null)
         return Results.NotFound();
 

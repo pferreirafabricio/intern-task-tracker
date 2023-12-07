@@ -67,14 +67,14 @@ async Task AddTask()
         return;
     }
 
-    await dbContext!.Todos.AddAsync(new TodoItem(description));
+    await dbContext!.Todos!.AddAsync(new TodoItem(description));
     await dbContext!.SaveChangesAsync();
     Console.WriteLine("Task added successfully!");
 }
 
 async Task RemoveTask()
 {
-    if (!await dbContext!.Todos.AnyAsync())
+    if (!await dbContext!.Todos!.AnyAsync())
     {
         Console.WriteLine("No tasks to remove. Todo list is empty.");
         return;
@@ -87,7 +87,7 @@ async Task RemoveTask()
 
     if (int.TryParse(Console.ReadLine(), out int id) && id >= 0)
     {
-        var task = await dbContext!.Todos.FindAsync(id);
+        var task = await dbContext!.Todos!.FindAsync(id);
 
         if (task is null)
         {
@@ -95,7 +95,7 @@ async Task RemoveTask()
             return;
         }
 
-        dbContext!.Todos.Remove(task);
+        dbContext!.Todos!.Remove(task);
         await dbContext!.SaveChangesAsync();
 
         Console.WriteLine("Task removed successfully!");
@@ -107,7 +107,7 @@ async Task RemoveTask()
 
 async Task MarkAsCompleted()
 {
-    if (!await dbContext!.Todos.AnyAsync())
+    if (!await dbContext!.Todos!.AnyAsync())
     {
         Console.WriteLine("No tasks to mark as completed. Todo list is empty.");
         return;
@@ -120,7 +120,7 @@ async Task MarkAsCompleted()
 
     if (int.TryParse(Console.ReadLine(), out int id) && id >= 0)
     {
-        var task = await dbContext!.Todos.FindAsync(id);
+        var task = await dbContext!.Todos!.FindAsync(id);
 
         if (task is null)
         {
@@ -141,7 +141,7 @@ async Task MarkAsCompleted()
 
 async Task ViewTasks()
 {
-    if (!await dbContext!.Todos.AnyAsync())
+    if (!await dbContext!.Todos!.AnyAsync())
     {
         Console.WriteLine("No tasks in the Todo List. It's empty.");
         return;
@@ -153,7 +153,7 @@ async Task ViewTasks()
 
 async Task DisplayTasks()
 {
-    var todos = await dbContext!.Todos.ToListAsync();
+    var todos = await dbContext!.Todos!.ToListAsync();
 
     foreach (var todo in todos)
         Console.WriteLine($"{todo.Id} - {todo.Description} - {(todo.IsComplete ? "Completed" : "Not Completed")}");
