@@ -3,9 +3,16 @@ using InternTaskTracker.Core.Domain;
 using InternTaskTracker.Core.Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+
+var config = new ConfigurationBuilder()
+    .AddJsonFile($"appsettings.json", true, true)
+    .Build();
 
 var services = new ServiceCollection();
-services.AddCoreDbContext();
+var connectionString = config.GetConnectionString("DatabaseConnection");
+services.AddCoreDbContext(connectionString);
 
 var serviceProvider = services.BuildServiceProvider();
 var dbContext = serviceProvider.GetService<InternTaskTrackerDbContext>();

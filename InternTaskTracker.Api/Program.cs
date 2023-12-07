@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCoreDbContext();
+var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
+builder.Services.AddCoreDbContext(connectionString);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -22,7 +23,7 @@ app.UseSwaggerUI(c =>
 });
 
 // Automatically redirect to swagger
-app.MapGet("/", () => Results.Redirect("/swagger"));
+app.MapGet("/", () => Results.Redirect("/swagger")).ExcludeFromDescription();
 
 app.MapGet("/todos", GetAllTodosAsync);
 app.MapGet("/todos/{id}", GetTodoAsync);
@@ -55,7 +56,6 @@ static async Task<IResult> PostTodoAsync(InternTaskTrackerDbContext db, TodoItem
 
     return Results.Created($"/todo/{todo.Id}", todo);
 }
-
 
 static async Task<IResult> DeleteTodoAsync(InternTaskTrackerDbContext db, int id)
 {
