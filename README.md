@@ -28,15 +28,15 @@
 1.  Clone this repository `git clone https://github.com/pferreirafabricio/intern-task-tracker.git`
 2.  Enter in the project's folder: `cd intern-task-tracker`
 3.  Run `dotnet restore`
-4.  Guarantee that you have ef core installed globally `dotnet tool install --global dotnet-ef`
+4.  Guarantee that you have Entity Framework Core installed globally `dotnet tool install --global dotnet-ef`
 > If you are using Linux, maybe you will need to add the dotnet-ef to your path.
-> Something like this:
+> Like this:
 > ```bash
 > sudo nano .bashrc # or .zshrc
 > # Append this to the bottom of the file
 > export PATH="$PATH:$HOME/.dotnet/tools/"
 > ```
-6.  If this is your first time running the project execute `./migration-helper.ps1` and select the option "3. Update Database"
+6.  If this is your first time running the project execute `./migration-helper.ps1` and select the option `3. Update Database`
 7.  Run the API with
 ```bash
 cd InternTaskTracker.Api
@@ -48,7 +48,7 @@ cd InternTaskTracker.Console
 dotnet run
 ```
 
-## :recycle: Contribute
+## ♻ Contribute
 
 1.  Fork this repository
 2.  Create a branch with your feature: `git checkout -b my-feature`
