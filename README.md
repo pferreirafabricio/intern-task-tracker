@@ -1,19 +1,19 @@
 <h1 align="right">
-  <img alt="Project's logo" src="" width="200px" align="left" />
+  <img alt="Project's logo" src="https://github.com/pferreirafabricio/intern-task-tracker/assets/42717522/fc06f417-9dd0-45de-9b7b-bf0fdf4ee723" width="140px" align="left" />
   Intern Task Tracker
 </h1>
 
 <p align="right">
   ✅ Tracking your activities as an intern
-  <br /><br />
+  <br />
 </p>
+<br/>
 
 ## 👀 Overview
 
 <div>
   <img alt="" src="" width="" />
 </div>
-<br/>
 
 ## 📖 About
 
