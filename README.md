@@ -12,10 +12,13 @@
 ## 👀 Overview
 
 <div>
-  <img alt="" src="" width="" />
+  <img src="https://github.com/pferreirafabricio/intern-task-tracker/assets/42717522/679b5809-5a2c-4237-be5d-9489f5e2be9e" />
+  <img src="https://github.com/pferreirafabricio/intern-task-tracker/assets/42717522/472b4c94-f0d3-43d2-80ae-cdfd5cf1e003" />
 </div>
 
 ## 📖 About
+
+Intern Task Tracker is an application designed to enhance the tracking of intern activities within an organization. Leveraging .NET 6, SQLite, and Entity Framework Core, the project provides a platform for efficient management and monitoring of intern tasks.
 
 ## 🧱 This project was built with:
 
@@ -37,7 +40,8 @@
 > export PATH="$PATH:$HOME/.dotnet/tools/"
 > ```
 6.  If this is your first time running the project execute `./migration-helper.ps1` and select the option `3. Update Database`
-7.  Run the API with
+> If you are using Linux, you can run the script using the PowerShell Core. [Install PowerShell on Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.4)
+8.  Run the API with
 ```bash
 cd InternTaskTracker.Api
 dotnet run
