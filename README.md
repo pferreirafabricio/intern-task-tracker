@@ -31,11 +31,12 @@ Intern Task Tracker is an application designed to enhance the tracking of intern
 1.  Clone this repository `git clone https://github.com/pferreirafabricio/intern-task-tracker.git`
 2.  Enter in the project's folder: `cd intern-task-tracker`
 3.  Run `dotnet restore`
+> If you haven't downloaded .NET yet you can follow this tutorial [Install .NET on Windows, Linux, and macOS](https://learn.microsoft.com/en-us/dotnet/core/install/)
 4.  Guarantee that you have Entity Framework Core installed globally `dotnet tool install --global dotnet-ef`
 > If you are using Linux, maybe you will need to add the dotnet-ef to your path.
 > Like this:
 > ```bash
-> sudo nano .bashrc # or .zshrc
+> sudo nano .bashrc # or sudo nano .zshrc
 > # Append this to the bottom of the file
 > export PATH="$PATH:$HOME/.dotnet/tools/"
 > ```
